@@ -12,9 +12,9 @@ CREATE TABLE  cliente (
    );
 
 CREATE TABLE telefone_cliente(
-    cpf_cliente VARCHAR (20),
-    numero_tel_cliente VARCHAR(20),
-    PRIMARY KEY (cpf_cliente)
+	cpf_cliente VARCHAR (20),
+    	numero_tel_cliente VARCHAR(20),
+	PRIMARY KEY (cpf_cliente)
 );
 
 CREATE TABLE funcionario(
@@ -32,9 +32,9 @@ CREATE TABLE funcionario(
 );
 
 CREATE TABLE telefone_funcionario(
-    matricula_funcionario VARCHAR (20),
-    numero_tel_funcionario VARCHAR(20),
-    PRIMARY KEY (matricula_funcionario)
+	matricula_funcionario VARCHAR (20),
+	numero_tel_funcionario VARCHAR(20),
+	PRIMARY KEY (matricula_funcionario)
 );
 
 CREATE TABLE dependente(
