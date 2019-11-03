@@ -1,9 +1,9 @@
 CREATE TABLE  cliente (
     cpf_cliente CHAR(11) NOT NULL, 
-	nome VARCHAR2(50) NOT NULL, 
-	email VARCHAR2(50) NOT NULL, 
-	pontos_crm INT NOT NULL, 
-	rua VARCHAR(50)NOT NULL,
+    nome VARCHAR2(50) NOT NULL, 
+    email VARCHAR2(50) NOT NULL, 
+    pontos_crm INT NOT NULL, 
+    rua VARCHAR(50)NOT NULL,
     numero INT,
     cidade VARCHAR(30) NOT NULL,
     bairro VARCHAR(50) NOT NULL,
@@ -28,16 +28,16 @@ CREATE TABLE funcionario(
 
 CREATE TABLE  ordem_de_compra(
     num_nota_fiscal NUMBER NOT NULL, 
-	data_hora DATE NOT NULL, 
-	PRIMARY KEY (num_nota_fiscal)
+    data_hora DATE NOT NULL, 
+    PRIMARY KEY (num_nota_fiscal)
    );
 
 CREATE TABLE  produto(
     code_id NUMBER NOT NULL,
-	nome VARCHAR2(30) NOT NULL,
-	descricao VARCHAR2(40) NOT NULL,
-	margem_lucro FLOAT(126) NOT NULL, 
-	PRIMARY KEY (code_id)
+    nome VARCHAR2(30) NOT NULL,
+    descricao VARCHAR2(40) NOT NULL,
+    margem_lucro FLOAT(126) NOT NULL, 
+    PRIMARY KEY (code_id)
     );
 
 CREATE TABLE  filial(
