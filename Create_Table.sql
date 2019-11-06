@@ -129,8 +129,28 @@ CREATE TABLE fornecedor (
         PRIMARY KEY (cnpj_fornecedor)
 );
 
-CREATE TABLE telefone_fornecedor(
+CREATE TABLE telefone_fornecedor)(
         cnpj_fornecedor VARCHAR (20),
         numero_tel_fornecedor VARCHAR(20),
         PRIMARY KEY (cnpj_fornecedor)
+);
+
+CREATE TABLE realiza_reclamacao(
+        cpf_cliente CHAR(11) NOT NULL,
+        id_filial INT NOT NULL,
+	data_e_hora VARCHAR(50),
+	descricao VARCHAR(60),
+       	FOREIGN KEY (cpf_cliente) REFERENCES cliente(cpf_cliente),
+       	FOREIGN KEY (id_filial) REFERENCES filial(id_filial),
+	PRIMARY KEY (cpf_cliente, id_filial)
+);
+
+CREATE TABLE realiza_manutencao(
+        id_equipamento NUMBER NOT NULL,
+        matricula_funcionario VARCHAR(20) NOT NULL,
+	data_e_hora VARCHAR(50),
+	descricao VARCHAR(60),
+       	FOREIGN KEY (id_equipamento) REFERENCES equipamento(id_equipamento),
+       	FOREIGN KEY (matricula_funcionario) REFERENCES funcionario(matricula_funcionario),
+	PRIMARY KEY (id_equipamento, matricula_funcionario)
 );
