@@ -129,8 +129,8 @@ CREATE TABLE fornecedor (
         PRIMARY KEY (cnpj_fornecedor)
 );
 
-CREATE TABLE telefone_fornecedor)(
-        cnpj_fornecedor VARCHAR (20),
+CREATE TABLE telefone_fornecedor(
+        cnpj_fornecedor VARCHAR(20),
         numero_tel_fornecedor VARCHAR(20),
         PRIMARY KEY (cnpj_fornecedor)
 );
