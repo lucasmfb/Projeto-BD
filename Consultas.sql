@@ -33,3 +33,8 @@ SELECT codigo_identificacao, nome
 FROM PRODUTO
 GROUP BY id_categoria, preco_compra, codigo_identificacao, nome
 ORDER BY id_categoria, preco_compra;
+
+-- 5.Liste o CPF e nome de todos os clientes que residem na cidade ‘Campina Grande’ e compraram na filial de nome ‘Campina’.
+SELECT c.cpf, c.nome
+FROM CLIENTE c, ORDEM_COMPRA o, FILIAL f
+WHERE c.cpf = o.cpf_cliente AND o.codigo_filial = f.codigo_identificacao AND f.nome = 'Campina';

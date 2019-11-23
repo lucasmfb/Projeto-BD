@@ -36,7 +36,7 @@ INSERT INTO FILIAL(codigo_identificacao, nome, endereco, telefone, gerente)
 VALUES (1, 'filial 1', 'rua filial 1' , '1111-1111', 1);
 
 INSERT INTO FILIAL(codigo_identificacao, nome, endereco, telefone, gerente)
-VALUES (2, 'filial 2', 'rua filial 2' , '2222-2222', 2);
+VALUES (2, 'Campina', 'rua filial 2' , '2222-2222', 2);
 
 INSERT INTO FILIAL(codigo_identificacao, nome, endereco, telefone, gerente)
 VALUES (3, 'Campina', 'rua filial 3' , '3333-3333', 3);
@@ -93,6 +93,15 @@ VALUES(5,'nome5', 'descricao5', 2.1, 1, 4, 3.14, 3.50, TO_DATE('01/01/2020'), TO
 INSERT INTO CAIXA (numero_caixa, codigo_filial)
 VALUES( 1, 1);
 
+INSERT INTO CAIXA (numero_caixa, codigo_filial)
+VALUES( 2, 2);
+
 -- Inserção de tuplas em ORDEM_COMPRA
 INSERT INTO ORDEM_COMPRA(numero_nota_fiscal, data_hora, cpf_cliente, codigo_filial, matricula_funcionario, numero_caixa)
 VALUES(1, TO_DATE('01/01/2018 12:10:11', 'DD/MM/YYYY HH:MI:SS'), '10000000001', 1, 1, 1);
+
+INSERT INTO ORDEM_COMPRA(numero_nota_fiscal, data_hora, cpf_cliente, codigo_filial, matricula_funcionario, numero_caixa)
+VALUES(2, TO_DATE('01/01/2018 12:10:11', 'DD/MM/YYYY HH:MI:SS'), '10000000002', 1, 1, 1);
+
+INSERT INTO ORDEM_COMPRA(numero_nota_fiscal, data_hora, cpf_cliente, codigo_filial, matricula_funcionario, numero_caixa)
+VALUES(3, TO_DATE('01/01/2018 12:10:11', 'DD/MM/YYYY HH:MI:SS'), '10000000003', 2, 1, 2);
