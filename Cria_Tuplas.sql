@@ -119,10 +119,10 @@ INSERT INTO SOLICITACAO(identificador, data_solicitacao,data_prevista, data_entr
 VALUES(1, TO_DATE('02/01/2018'), TO_DATE('02/01/2018'), TO_DATE('02/01/2018'), 1.0, TO_DATE('03/01/2018'), 1, '00010');
 
 INSERT INTO SOLICITACAO(identificador, data_solicitacao,data_prevista, data_entrega, valor_compra, prazo_pagamento, codigo_filial, cnpj_fornecedor)
-VALUES(2, TO_DATE('02/01/2018'), TO_DATE('02/01/2018'), TO_DATE('02/01/2018'), 1.0, TO_DATE('02/01/2018'), 2, '00010');
+VALUES(2, TO_DATE('02/01/2018'), TO_DATE('02/01/2018'), TO_DATE('02/01/2018'), 1.0, TO_DATE('02/01/2018'), 1, '00010');
 
 INSERT INTO SOLICITACAO(identificador, data_solicitacao,data_prevista, data_entrega, valor_compra, prazo_pagamento, codigo_filial, cnpj_fornecedor)
-VALUES(3, TO_DATE('02/01/2018'), TO_DATE('01/01/2018'), TO_DATE('01/01/2018'), 1.0, TO_DATE('01/01/2018'), 3, '00010');
+VALUES(3, TO_DATE('02/01/2018'), TO_DATE('01/01/2018'), TO_DATE('01/01/2018'), 1.0, TO_DATE('01/01/2018'), 2, '00010');
 
 -- Inserção de tuplas em NOTA_FISCAL
 INSERT INTO NOTA_FISCAL(numero, cnpj, quantidade, data, valor_por_item,	identificador_solicitacao)
