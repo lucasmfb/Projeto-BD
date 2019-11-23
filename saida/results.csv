@@ -1,0 +1,5 @@
+"Número";"Decorrido";"Instrução";"Feedback";"Linhas";
+"1";"0,10";"DROP VIEW funcionarios";"View eliminada.";"0"
+"2";"0,01";"SELECT COUNT(*) AS total FROM PRODUTO p WHERE p.data_compra";"Instrução processada.";"1"
+"3";"0,00";"SELECT nome FROM MARCA WHERE identificador = (SELECT id_marc";"Instrução processada.";"1"
+"4";"0,01";"CREATE VIEW funcionarios AS SELECT * FROM FUNCIONARIO WHERE";"View criada.";"0"
