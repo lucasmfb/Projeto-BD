@@ -1,4 +1,8 @@
 -- Remove as tuplas existentes para o banco ficar com as tuplas presentes nesse arquivo
+DELETE FROM ITEM;
+DELETE FROM NOTA_FISCAL;
+DELETE FROM SOLICITACAO;
+DELETE FROM FORNECEDOR;
 DELETE FROM ORDEM_COMPRA;
 DELETE FROM CAIXA;
 DELETE FROM PRODUTO;
@@ -105,3 +109,19 @@ VALUES(2, TO_DATE('01/01/2018 12:10:11', 'DD/MM/YYYY HH:MI:SS'), '10000000002', 
 
 INSERT INTO ORDEM_COMPRA(numero_nota_fiscal, data_hora, cpf_cliente, codigo_filial, matricula_funcionario, numero_caixa)
 VALUES(3, TO_DATE('01/01/2018 12:10:11', 'DD/MM/YYYY HH:MI:SS'), '10000000003', 2, 1, 2);
+
+-- Inserção de tuplas em FORNECEDOR
+INSERT INTO FORNECEDOR(cnpj, nome, endereco, email, id_categoria)
+VALUES('00010', 'a', 'endereco', '@', 1);
+
+-- Inserção de tuplas em SOLICITACAO
+INSERT INTO SOLICITACAO(identificador, data_solicitacao,data_prevista, data_entrega, valor_compra, prazo_pagamento, codigo_filial, cnpj_fornecedor)
+VALUES(1, TO_DATE('02/01/2018'), TO_DATE('02/01/2018'), TO_DATE('02/01/2018'), 1.0, TO_DATE('02/01/2018'), 1, '00010');
+
+-- Inserção de tuplas em NOTA_FISCAL
+INSERT INTO NOTA_FISCAL(numero, cnpj, quantidade, data, valor_por_item,	identificador_solicitacao)
+VALUES(1, '00001', 1, TO_DATE('02/01/2018'), 1, 1);
+
+-- Inserção de tuplas em ITEM
+INSERT INTO ITEM(identificador, num_nota_fiscal_ordem, numero_nota_fiscal, quantidade, preco_produto, desconto)
+VALUES(1, 1, 1, 1, 2.0, 1.0);
