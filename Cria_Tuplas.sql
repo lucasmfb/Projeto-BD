@@ -125,3 +125,12 @@ VALUES(1, '00001', 1, TO_DATE('02/01/2018'), 1, 1);
 -- Inserção de tuplas em ITEM
 INSERT INTO ITEM(identificador, num_nota_fiscal_ordem, numero_nota_fiscal, quantidade, preco_produto, desconto)
 VALUES(1, 1, 1, 1, 2.0, 1.0);
+
+INSERT INTO ITEM(identificador, num_nota_fiscal_ordem, numero_nota_fiscal, quantidade, preco_produto, desconto)
+VALUES(2, 1, 1, 1, 2.0, 2.0);
+
+INSERT INTO ITEM(identificador, num_nota_fiscal_ordem, numero_nota_fiscal, quantidade, preco_produto, desconto)
+VALUES(3, 2, 1, 1, 2.0, 1.0);
+
+INSERT INTO ITEM(identificador, num_nota_fiscal_ordem, numero_nota_fiscal, quantidade, preco_produto, desconto)
+VALUES(4, 2, 1, 1, 2.0, 1.0);

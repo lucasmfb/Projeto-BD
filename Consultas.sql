@@ -34,7 +34,16 @@ FROM PRODUTO
 GROUP BY id_categoria, preco_compra, codigo_identificacao, nome
 ORDER BY id_categoria, preco_compra;
 
--- 5.Liste o CPF e nome de todos os clientes que residem na cidade ‘Campina Grande’ e compraram na filial de nome ‘Campina’.
+-- 5. Liste o CPF e nome de todos os clientes que residem na cidade ‘Campina Grande’ e compraram na filial de nome ‘Campina’.
 SELECT c.cpf, c.nome
 FROM CLIENTE c, ORDEM_COMPRA o, FILIAL f
 WHERE c.cpf = o.cpf_cliente AND o.codigo_filial = f.codigo_identificacao AND f.nome = 'Campina';
+
+-- 6.  Liste o CPF, nome e pontos CRM dos clientes por ordem decrescente do valor total comprado.
+SELECT cpf, nome, pontos_crm
+FROM(
+    SELECT c.cpf, c.nome, c.pontos_crm, i.quantidade * (i.preco_produto - i.desconto) AS preco
+    FROM CLIENTE c, ORDEM_COMPRA o, ITEM i
+    WHERE c.cpf = o.cpf_cliente AND o.numero_nota_fiscal = i.num_nota_fiscal_ordem)
+GROUP BY cpf, nome, pontos_crm
+ORDER BY sum(preco) DESC;
