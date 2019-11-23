@@ -47,3 +47,5 @@ FROM(
     WHERE c.cpf = o.cpf_cliente AND o.numero_nota_fiscal = i.num_nota_fiscal_ordem)
 GROUP BY cpf, nome, pontos_crm
 ORDER BY sum(preco) DESC;
+
+-- 7. Liste todos os dados das solicitações agrupadas por filial e ordenadas de forma crescente pelo prazo para pagamento em dias.
