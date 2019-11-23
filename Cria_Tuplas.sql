@@ -38,16 +38,16 @@ INSERT INTO CATEGORIA(identificador, nome) VALUES(5, 'categoria 5');
 
 -- Inserção de tuplas em produto
 INSERT INTO PRODUTO(codigo_identificacao, nome, descricao, margem_lucro, codigo_filial, quantidade, preco_compra,preco_venda, data_compra, data_validade, id_marca, id_categoria) 
-VALUES(1,'almir', 'no cego', 2.1, 1, 2, 3.15, 3.50, TO_DATE('01/01/2018'), TO_DATE('01/01/2019'), 1, 1);
+VALUES(1,'nome1', 'no cego', 2.1, 1, 2, 3.15, 3.50, TO_DATE('01/01/2018'), TO_DATE('01/01/2019'), 1, 1);
 
 INSERT INTO PRODUTO(codigo_identificacao, nome, descricao, margem_lucro, codigo_filial, quantidade, preco_compra, preco_venda, data_compra, data_validade, id_marca, id_categoria) 
-VALUES(2,'nome2', 'descricao2', 2.1, 1, 1, 3.15, 3.50, TO_DATE('02/01/2018'), TO_DATE('01/01/2019'), 1, 1);
+VALUES(2,'nome2', 'descricao2', 2.1, 1, 1, 3.16, 3.50, TO_DATE('02/01/2018'), TO_DATE('01/01/2019'), 1, 2);
 
 INSERT INTO PRODUTO(codigo_identificacao, nome, descricao, margem_lucro, codigo_filial, quantidade, preco_compra, preco_venda, data_compra, data_validade, id_marca, id_categoria) 
-VALUES(3,'nome3', 'descricao3', 2.1, 1, 4, 3.15, 3.50, TO_DATE('02/01/2018'), TO_DATE('01/01/2019'), 5, 1);
+VALUES(3,'nome3', 'descricao3', 2.1, 1, 4, 3.18, 3.50, TO_DATE('02/01/2018'), TO_DATE('01/01/2019'), 5, 1);
 
 INSERT INTO PRODUTO(codigo_identificacao, nome, descricao, margem_lucro, codigo_filial, quantidade, preco_compra, preco_venda, data_compra, data_validade, id_marca, id_categoria) 
-VALUES(4,'nome3', 'descricao3', 2.1, 1, 4, 3.15, 3.50, TO_DATE('31/12/2019'), TO_DATE('01/01/2019'), 5, 1);
+VALUES(4,'nome4', 'descricao4', 2.1, 1, 6, 3.15, 3.50, TO_DATE('31/12/2019'), TO_DATE('01/01/2019'), 2, 1);
 
 INSERT INTO PRODUTO(codigo_identificacao, nome, descricao, margem_lucro, codigo_filial, quantidade, preco_compra, preco_venda, data_compra, data_validade, id_marca, id_categoria) 
-VALUES(5,'nome3', 'descricao3', 2.1, 1, 4, 3.15, 3.50, TO_DATE('01/01/2020'), TO_DATE('01/01/2019'), 5, 1);
+VALUES(5,'nome5', 'descricao5', 2.1, 1, 4, 3.14, 3.50, TO_DATE('01/01/2020'), TO_DATE('01/01/2019'), 5, 3);
