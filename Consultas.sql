@@ -1,3 +1,6 @@
+-- Remove as estruturas criadas no arquivo
+DROP VIEW funcionarios;
+
 -- 1. Qual o número de compras feitas entre 01/01/2018 e 31/12/2019 ?
 
 SELECT COUNT(*) AS total FROM PRODUTO p WHERE p.data_compra BETWEEN TO_DATE('01/01/2018','DD/MM/YYYY') AND TO_DATE('31/12/2019','DD/MM/YYYY');
