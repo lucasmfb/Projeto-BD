@@ -55,4 +55,10 @@ FROM(
     FROM SOLICITACAO)
 ORDER BY codigo_filial, prazo;
 
---
+-- 8. Liste a matrícula, nome e CPF dos funcionários que possuem mais do que 3 dependentes. Ordene-os pelo valor do salário, em ordem decrescente.
+SELECT f.nome, f.cpf
+FROM FUNCIONARIO f, DEPENDENTE d
+WHERE f.matricula = d.matricula_funcionario
+GROUP BY f.nome, f.cpf, f.salario
+HAVING COUNT(*) > 3
+ORDER BY f.salario DESC;

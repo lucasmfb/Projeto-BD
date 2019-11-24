@@ -1,4 +1,5 @@
 -- Remove as tuplas existentes para o banco ficar com as tuplas presentes nesse arquivo
+DELETE FROM DEPENDENTE;
 DELETE FROM ITEM;
 DELETE FROM NOTA_FISCAL;
 DELETE FROM SOLICITACAO;
@@ -14,7 +15,7 @@ DELETE FROM FUNCIONARIO;
 
 -- Inserção de tuplas em funcionario
 INSERT INTO FUNCIONARIO(matricula, cpf, identidade, nome, endereco, salario, funcao, matricula_supervisor, codigo_filial)
-VALUES(1, '11122233344', '1111122', 'funcionario 1', 'endereco 1', 4000, 'gerente1', null, null);
+VALUES(1, '11122233344', '1111122', 'funcionario 1', 'endereco 1', 2000, 'gerente1', null, null);
 
 INSERT INTO FUNCIONARIO(matricula, cpf, identidade, nome, endereco, salario, funcao, matricula_supervisor, codigo_filial)
 VALUES(2, '22233344455', '2222233', 'funcionario 2', 'endereco 2', 3000, 'funcionario1', null, null);
@@ -23,7 +24,7 @@ INSERT INTO FUNCIONARIO(matricula, cpf, identidade, nome, endereco, salario, fun
 VALUES(3, '33344455566', '3333344', 'funcionario 3', 'endereco 3', 2000, 'funcionario2', null, null);
 
 INSERT INTO FUNCIONARIO(matricula, cpf, identidade, nome, endereco, salario, funcao, matricula_supervisor, codigo_filial)
-VALUES(4, '33344455566', '3333344', 'funcionario 3', 'endereco 3', 2000, 'funcionario2', 1, null);
+VALUES(4, '33344455566', '3333344', 'funcionario 4', 'endereco 3', 4000, 'funcionario2', 1, null);
 
 -- Inserção de tuplas em cliente
 INSERT INTO CLIENTE(cpf, nome, email, pontos_crm, rua, num, cidade, estado, bairro)
@@ -140,3 +141,37 @@ VALUES(3, 2, 1, 1, 2.0, 1.0);
 
 INSERT INTO ITEM(identificador, num_nota_fiscal_ordem, numero_nota_fiscal, quantidade, preco_produto, desconto)
 VALUES(4, 2, 1, 1, 2.0, 1.0);
+
+-- Inserção de tuplas em DEPENDENTE
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22299994455', TO_DATE('02/01/2018'), 'a', 2);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22288884455', TO_DATE('02/01/2018'), 'b', 2);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22277774455', TO_DATE('02/01/2018'), 'c', 2);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22266664455', TO_DATE('02/01/2018'), 'd', 3);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22255554455', TO_DATE('02/01/2018'), 'e', 3);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22244444455', TO_DATE('02/01/2018'), 'f', 3);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22233334455', TO_DATE('02/01/2018'), 'g', 3);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22222224455', TO_DATE('02/01/2018'), 'h', 4);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22211114455', TO_DATE('02/01/2018'), 'i', 4);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22200004455', TO_DATE('02/01/2018'), 'j', 4);
+
+INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
+VALUES('22000004455', TO_DATE('02/01/2018'), 'k', 4);
