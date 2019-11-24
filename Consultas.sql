@@ -49,3 +49,10 @@ GROUP BY cpf, nome, pontos_crm
 ORDER BY sum(preco) DESC;
 
 -- 7. Liste todos os dados das solicitações agrupadas por filial e ordenadas de forma crescente pelo prazo para pagamento em dias.
+SELECT identificador, data_solicitacao,data_prevista, data_entrega, valor_compra, prazo_pagamento, codigo_filial, cnpj_fornecedor
+FROM(
+    SELECT (prazo_pagamento - data_solicitacao) AS prazo, identificador, data_solicitacao,data_prevista, data_entrega, valor_compra, prazo_pagamento, codigo_filial, cnpj_fornecedor
+    FROM SOLICITACAO)
+ORDER BY codigo_filial, prazo;
+
+--
