@@ -1,4 +1,6 @@
 -- Remove as estruturas criadas no arquivo
+DROP VIEW quatorze;
+DROP VIEW doze;
 DROP VIEW funcionarios;
 /*
 1. Qual o número de compras feitas entre 01/01/2018 e 31/12/2019 ?
@@ -98,9 +100,10 @@ WHERE s.matricula = f.matricula_supervisor AND s.salario < 2000;
 12. Crie uma View que lista todos os dados dos produtos agrupados por sua categoria e
 ordenados de forma decrescente pela margem de lucro mínima.
 */
-SELECT *
-FROM PRODUTO
-ORDER BY id_categoria ASC, margem_lucro DESC;
+CREATE VIEW doze AS
+    SELECT *
+    FROM PRODUTO
+    ORDER BY id_categoria ASC, margem_lucro DESC;
 /*
 13. Crie uma view que liste o CPF, nome e telefones de todos os clientes que já compraram
 algum produto da categoria ‘limpeza’ ou da marca ‘Yard’.
@@ -111,9 +114,10 @@ algum produto da categoria ‘limpeza’ ou da marca ‘Yard’.
 14. Crie uma view que liste todos os dados de funcionários que possuem algum dependente com a
 palavra ‘Maria’ no nome.
 */
-SELECT DISTINCT f.*
-FROM FUNCIONARIO f, DEPENDENTE d
-WHERE f.matricula = d.matricula_funcionario AND LOWER(d.nome) LIKE '%maria%';
+CREATE VIEW quatorze AS
+    SELECT DISTINCT f.*
+    FROM FUNCIONARIO f, DEPENDENTE d
+    WHERE f.matricula = d.matricula_funcionario AND LOWER(d.nome) LIKE '%maria%';
 /*
 15. Modifique a tabela TELEFONE_FUNCIONARIO, adicionando uma restrição de integridade que
 valide se a coluna TELEFONE está no formato “(XX) XXXXX-XXXX”, onde X é qualquer dígito de
