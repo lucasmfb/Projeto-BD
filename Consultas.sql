@@ -82,8 +82,9 @@ dependentes? Liste matrícula, CPF, nome e salário.
 10. Liste o CPF e nome de todos clientes que realizaram compras entre 01/01/2019 e 30/06/2019
 nas filiais ‘Campina’ ou ‘Jampa’.
 */
-
-
+SELECT c.cpf, c.nome
+FROM CLIENTE c, ORDEM_COMPRA o, FILIAL f
+WHERE c.cpf = o.cpf_cliente AND o.codigo_filial = f.codigo_identificacao AND (f.nome = 'Campina' OR f.nome = 'Jampa') AND data_hora BETWEEN TO_DATE('01/01/2019','DD/MM/YYYY') AND TO_DATE('30/06/2019','DD/MM/YYYY');
 /*
 11. Liste a matrícula e nome de todos os supervisores com salário inferior a R$2.000,00.
 */
