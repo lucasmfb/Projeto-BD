@@ -98,8 +98,9 @@ WHERE s.matricula = f.matricula_supervisor AND s.salario < 2000;
 12. Crie uma View que lista todos os dados dos produtos agrupados por sua categoria e
 ordenados de forma decrescente pela margem de lucro mínima.
 */
-
-
+SELECT *
+FROM PRODUTO
+ORDER BY id_categoria ASC, margem_lucro DESC;
 /*
 13. Crie uma view que liste o CPF, nome e telefones de todos os clientes que já compraram
 algum produto da categoria ‘limpeza’ ou da marca ‘Yard’.
