@@ -145,7 +145,7 @@ VALUES(4, 2, 1, 1, 2.0, 1.0);
 
 -- Inserção de tuplas em DEPENDENTE
 INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
-VALUES('22299994455', TO_DATE('02/01/2018'), 'a', 2);
+VALUES('22299994455', TO_DATE('02/01/2018'), 'maRia', 2);
 
 INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
 VALUES('22288884455', TO_DATE('02/01/2018'), 'b', 2);
@@ -169,7 +169,7 @@ INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
 VALUES('22222224455', TO_DATE('02/01/2018'), 'h', 4);
 
 INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
-VALUES('22211114455', TO_DATE('02/01/2018'), 'i', 4);
+VALUES('22211114455', TO_DATE('02/01/2018'), 'teste maria', 4);
 
 INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
 VALUES('22200004455', TO_DATE('02/01/2018'), 'j', 4);

@@ -111,8 +111,9 @@ algum produto da categoria ‘limpeza’ ou da marca ‘Yard’.
 14. Crie uma view que liste todos os dados de funcionários que possuem algum dependente com a
 palavra ‘Maria’ no nome.
 */
-
-
+SELECT DISTINCT f.*
+FROM FUNCIONARIO f, DEPENDENTE d
+WHERE f.matricula = d.matricula_funcionario AND LOWER(d.nome) LIKE '%maria%';
 /*
 15. Modifique a tabela TELEFONE_FUNCIONARIO, adicionando uma restrição de integridade que
 valide se a coluna TELEFONE está no formato “(XX) XXXXX-XXXX”, onde X é qualquer dígito de
