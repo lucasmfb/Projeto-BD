@@ -15,7 +15,7 @@ DELETE FROM FUNCIONARIO;
 
 -- Inserção de tuplas em funcionario
 INSERT INTO FUNCIONARIO(matricula, cpf, identidade, nome, endereco, salario, funcao, matricula_supervisor, codigo_filial)
-VALUES(1, '11122233344', '1111122', 'funcionario 1', 'endereco 1', 2000, 'gerente1', null, null);
+VALUES(1, '11122233344', '1111122', 'funcionario 1', 'endereco 1', 1000, 'gerente1', null, null);
 
 INSERT INTO FUNCIONARIO(matricula, cpf, identidade, nome, endereco, salario, funcao, matricula_supervisor, codigo_filial)
 VALUES(2, '22233344455', '2222233', 'funcionario 2', 'endereco 2', 3000, 'funcionario1', null, null);

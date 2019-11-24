@@ -88,8 +88,9 @@ WHERE c.cpf = o.cpf_cliente AND o.codigo_filial = f.codigo_identificacao AND (f.
 /*
 11. Liste a matrícula e nome de todos os supervisores com salário inferior a R$2.000,00.
 */
-
-
+SELECT s.matricula, s.nome
+FROM FUNCIONARIO s, FUNCIONARIO f
+WHERE s.matricula = f.matricula_supervisor AND s.salario < 2000;
 /*
 12. Crie uma View que lista todos os dados dos produtos agrupados por sua categoria e
 ordenados de forma decrescente pela margem de lucro mínima.
