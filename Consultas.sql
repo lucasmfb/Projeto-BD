@@ -144,3 +144,55 @@ também o código de como executar a função.
 identificador de uma categoria e retornar o fornecedor daquela categoria que mais teve
 solicitações realizadas. Coloque no script também o código de como executar a procedure.
 */
+
+
+
+
+
+-- Q16
+/*CREATE OR REPLACE TRIGGER exclui_categoria
+AFTER DELETE ON FORNECEDOR
+FOR EACH ROW   
+WHEN(old.cpnj is null)
+    BEGIN
+        DELETE FROM CATEGORIA
+        WHERE CATEGORIA.indentificador = :old.id_categoria;
+    END;
+END exclui_categoria;
+*/
+
+--Q17
+/*
+CREATE OR REPLACE TRIGGER adiciona_nome_repetido
+BEFORE INSERT
+ON PRODUTO
+FOR EACH ROW
+    BEGIN
+        IF (:new.nome LIKE old.nome)
+            THEN RAISE_APPLICATION_ERROR(-20000, "Não é permitido nomes iguais!");
+        END IF;
+    END adiciona_nome_repetido;
+*/
+
+--Q18
+/*CREATE OR REPLACE TRIGGER controle_depedentes
+BEFORE INSERT
+ON FUNCIONARIO
+FOR EACH ROW
+    BEGIN
+*/
+
+
+-- Q20 (não é a resposta, apenas uma ideia para fazer a questão depois)
+/*CREATE PROCEDURE getFornecedorByCategoria
+@categoria INT
+AS
+SELECT *
+FROM (SELECT FORNECEDOR
+        FROM SOLICITACAO AS S, NOTA_FISCAL AS NOTA_FISCAL
+        WHERE @categoria = F.id_categoria and F.cnpj = S.cnpj_fornecedor and S.identificador = N.identificador_soliticao
+        ORDER BY N.quantidade)
+WHERE ROWNUM = 1;
+*/
+
+--EXECUTE getFornecedorByCategoria (id valido)
