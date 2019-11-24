@@ -76,8 +76,11 @@ ORDER BY f.salario DESC;
 9. Quais os funcionários que possuem telefones que começam com ‘(83) 33’ e têm mais de 2
 dependentes? Liste matrícula, CPF, nome e salário.
 */
-
-
+SELECT f.matricula, f.cpf, f.nome, f.salario
+FROM FUNCIONARIO f, DEPENDENTE d, TELEFONE_FUNCIONARIO t
+WHERE f.matricula = t.matricula AND f.matricula = d.matricula_funcionario AND t.telefone LIKE '(83) 33%'
+GROUP BY f.matricula, f.cpf, f.nome, f.salario
+HAVING COUNT(*) > 2;
 /*
 10. Liste o CPF e nome de todos clientes que realizaram compras entre 01/01/2019 e 30/06/2019
 nas filiais ‘Campina’ ou ‘Jampa’.

@@ -1,4 +1,5 @@
 -- Remove as tuplas existentes para o banco ficar com as tuplas presentes nesse arquivo
+DELETE FROM TELEFONE_FUNCIONARIO;
 DELETE FROM DEPENDENTE;
 DELETE FROM ITEM;
 DELETE FROM NOTA_FISCAL;
@@ -175,3 +176,13 @@ VALUES('22200004455', TO_DATE('02/01/2018'), 'j', 4);
 
 INSERT INTO DEPENDENTE(cpf, data_nasc, nome, matricula_funcionario)
 VALUES('22000004455', TO_DATE('02/01/2018'), 'k', 4);
+
+-- Inserção de tuplas em TELEFONE_FUNCIONARIO
+INSERT INTO TELEFONE_FUNCIONARIO(telefone, matricula)
+VALUES('(83) 33345-6789', 1);
+
+INSERT INTO TELEFONE_FUNCIONARIO(telefone, matricula)
+VALUES('(11) 12345-6789', 2);
+
+INSERT INTO TELEFONE_FUNCIONARIO(telefone, matricula)
+VALUES('(83) 33345-6789', 3);
