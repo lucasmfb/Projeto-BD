@@ -1,4 +1,5 @@
 -- Remove as estruturas criadas no arquivo
+ALTER TABLE TELEFONE_FUNCIONARIO DROP CONSTRAINT quinze;
 DROP VIEW quatorze;
 DROP VIEW doze;
 DROP VIEW funcionarios;
@@ -123,8 +124,8 @@ CREATE VIEW quatorze AS
 valide se a coluna TELEFONE está no formato “(XX) XXXXX-XXXX”, onde X é qualquer dígito de
 0 à 9.
 */
-
-
+ALTER TABLE TELEFONE_FUNCIONARIO ADD CONSTRAINT quinze
+CHECK (REGEXP_LIKE ( telefone, '^\(\d{2}\) \d{5}-\d{4}$' ));
 /*
 16. Crie um trigger que exclua a categoria correspondente a um fornecedor quando este for
 excluído.
