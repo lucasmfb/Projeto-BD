@@ -64,6 +64,7 @@ SELECT identificador, data_solicitacao,data_prevista, data_entrega, valor_compra
 FROM(
     SELECT (prazo_pagamento - data_solicitacao) AS prazo, identificador, data_solicitacao,data_prevista, data_entrega, valor_compra, prazo_pagamento, codigo_filial, cnpj_fornecedor
     FROM SOLICITACAO)
+GROUP BY identificador, data_solicitacao,data_prevista, data_entrega, valor_compra, prazo_pagamento, codigo_filial, cnpj_fornecedor, codigo_filial, prazo
 ORDER BY codigo_filial, prazo;
 /*
 8. Liste a matrícula, nome e CPF dos funcionários que possuem mais do que 3 dependentes.
