@@ -113,8 +113,8 @@ INSERT INTO ORDEM_COMPRA(numero_nota_fiscal, data_hora, cpf_cliente, codigo_fili
 VALUES(3, TO_DATE('01/01/2019 12:10:11', 'DD/MM/YYYY HH:MI:SS'), '10000000003', 2, 1, 2);
 
 -- Inserção de tuplas em FORNECEDOR
-INSERT INTO FORNECEDOR(cnpj, nome, endereco, email, id_categoria)
-VALUES('00010', 'a', 'endereco', '@', 1);
+INSERT INTO FORNECEDOR(cnpj, nome, endereco, email, id_categoria, site)
+VALUES('00010', 'a', 'endereco', '@', 1, 'a');
 
 -- Inserção de tuplas em SOLICITACAO
 INSERT INTO SOLICITACAO(identificador, data_solicitacao,data_prevista, data_entrega, valor_compra, prazo_pagamento, codigo_filial, cnpj_fornecedor)
