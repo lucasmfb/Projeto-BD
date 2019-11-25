@@ -1,6 +1,7 @@
 -- Remove as estruturas criadas no arquivo
 ALTER TABLE TELEFONE_FUNCIONARIO DROP CONSTRAINT quinze;
 DROP VIEW quatorze;
+DROP VIEW treze;
 DROP VIEW doze;
 DROP VIEW funcionarios;
 /*
@@ -110,8 +111,16 @@ CREATE VIEW doze AS
 13. Crie uma view que liste o CPF, nome e telefones de todos os clientes que já compraram
 algum produto da categoria ‘limpeza’ ou da marca ‘Yard’.
 */
-
-
+CREATE VIEW treze AS
+    WITH clientes (cpf, nome, telefone) AS
+        (SELECT cpf, nome, telefone
+        FROM CLIENTE LEFT OUTER JOIN TELEFONE_CLIENTE ON CLIENTE.cpf = TELEFONE_CLIENTE.cpf_cliente)
+    SELECT c.cpf, c.nome, c.telefone
+    FROM clientes c, ORDEM_COMPRA o, ITEM i, PRODUTO p, CATEGORIA a, MARCA m
+    WHERE c.cpf = o.cpf_cliente
+        AND o.numero_nota_fiscal = i.num_nota_fiscal_ordem
+            AND i.codigo_produto = p.codigo_identificacao 
+            AND ((p.id_categoria = a.identificador AND a.nome = 'limpeza') OR (p.id_marca = m.identificador AND m.nome = 'Yard'));
 /*
 14. Crie uma view que liste todos os dados de funcionários que possuem algum dependente com a
 palavra ‘Maria’ no nome.
