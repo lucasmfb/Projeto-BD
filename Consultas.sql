@@ -8,8 +8,8 @@ DROP VIEW funcionarios;
 1. Qual o número de compras feitas entre 01/01/2018 e 31/12/2019 ?
 */
 SELECT COUNT(*) AS total
-FROM PRODUTO
-WHERE data_compra
+FROM ORDEM_COMPRA
+WHERE data_hora
 BETWEEN TO_DATE('01/01/2018','DD/MM/YYYY') AND TO_DATE('31/12/2019','DD/MM/YYYY');
 /*
 2. Qual é o nome da marca do produto com maior quantidade em estoque?
@@ -140,7 +140,6 @@ CHECK (REGEXP_LIKE ( telefone, '^\(\d{2}\) \d{5}-\d{4}$' ));
 16. Crie um trigger que exclua a categoria correspondente a um fornecedor quando este for
 excluído.
 */
-
 
 /*
 17. Crie um trigger que não permita a inserção de mais de um produto com o mesmo nome.
