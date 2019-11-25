@@ -1,4 +1,5 @@
 -- Remove as tuplas existentes para o banco ficar com as tuplas presentes nesse arquivo
+DROP TRIGGER dezesseis;
 DELETE FROM TELEFONE_FUNCIONARIO;
 DELETE FROM DEPENDENTE;
 DELETE FROM ITEM;
@@ -14,7 +15,7 @@ DELETE FROM FILIAL;
 DELETE FROM CLIENTE;
 DELETE FROM FUNCIONARIO;
 
--- Inserção de tuplas em funcionario
+-- Inserção de tuplas em FUNCIONARIO
 INSERT INTO FUNCIONARIO(matricula, cpf, identidade, nome, endereco, salario, funcao, matricula_supervisor, codigo_filial)
 VALUES(1, '11122233344', '1111122', 'funcionario 1', 'endereco 1', 1000, 'gerente1', null, null);
 
@@ -27,7 +28,7 @@ VALUES(3, '33344455566', '3333344', 'funcionario 3', 'endereco 3', 2000, 'funcio
 INSERT INTO FUNCIONARIO(matricula, cpf, identidade, nome, endereco, salario, funcao, matricula_supervisor, codigo_filial)
 VALUES(4, '33344455566', '3333344', 'funcionario 4', 'endereco 3', 4000, 'funcionario2', 1, null);
 
--- Inserção de tuplas em cliente
+-- Inserção de tuplas em CLIENTE
 INSERT INTO CLIENTE(cpf, nome, email, pontos_crm, rua, num, cidade, estado, bairro)
 VALUES ('10000000001', 'cliente 1', 'cliente1@email.com', 2, 'rua 1', 1,'cidade 1', 'estado 1' , 'bairro 1');
 
@@ -37,7 +38,7 @@ VALUES ('10000000002', 'cliente 2', 'cliente2@email.com', 4, 'rua 2', 2, 'Campin
 INSERT INTO CLIENTE(cpf, nome, email, pontos_crm, rua, num, cidade, estado, bairro)
 VALUES ('10000000003', 'cliente 3', 'cliente3@email.com', 6, 'rua 3', 3, 'Campina Grande', 'estado 3' , 'bairro 3');
 
--- Inserção de tuplas em filial
+-- Inserção de tuplas em FILIAL
 INSERT INTO FILIAL(codigo_identificacao, nome, endereco, telefone, gerente)
 VALUES (1, 'filial 1', 'rua filial 1' , '1111-1111', 1);
 
@@ -47,7 +48,7 @@ VALUES (2, 'Campina', 'rua filial 2' , '2222-2222', 2);
 INSERT INTO FILIAL(codigo_identificacao, nome, endereco, telefone, gerente)
 VALUES (3, 'Campina', 'rua filial 3' , '3333-3333', 3);
 
--- Inserção de tuplas em marca
+-- Inserção de tuplas em MARCA
 INSERT INTO MARCA(identificador, nome)
 VALUES (1, 'marca 1');
 
@@ -63,7 +64,7 @@ VALUES (4, 'marca 4');
 INSERT INTO MARCA(identificador, nome)
 VALUES (5, 'marca 5');
 
--- Inserção de tuplas em categoria
+-- Inserção de tuplas em CATEGORIA
 INSERT INTO CATEGORIA(identificador, nome)
 VALUES(1, 'categoria 1');
 
@@ -79,7 +80,7 @@ VALUES(4, 'categoria 4');
 INSERT INTO CATEGORIA(identificador, nome)
 VALUES(5, 'categoria 5');
 
--- Inserção de tuplas em produto
+-- Inserção de tuplas em PRODUTO
 INSERT INTO PRODUTO(codigo_identificacao, nome, descricao, margem_lucro, codigo_filial, quantidade, preco_compra,preco_venda, data_compra, data_validade, id_marca, id_categoria) 
 VALUES(1,'nome1', 'no cego', 2.1, 1, 2, 3.15, 3.50, TO_DATE('01/01/2018'), TO_DATE('01/01/2019'), 1, 1);
 
@@ -118,6 +119,9 @@ VALUES(4, TO_DATE('01/01/2020 12:10:11', 'DD/MM/YYYY HH:MI:SS'), '10000000003', 
 -- Inserção de tuplas em FORNECEDOR
 INSERT INTO FORNECEDOR(cnpj, nome, endereco, email, id_categoria, site)
 VALUES('00010', 'a', 'endereco', '@', 1, 'a');
+
+INSERT INTO FORNECEDOR(cnpj, nome, endereco, email, id_categoria, site)
+VALUES('00020', 'b', 'endereco', '@', 4, 'b');
 
 -- Inserção de tuplas em SOLICITACAO
 INSERT INTO SOLICITACAO(identificador, data_solicitacao,data_prevista, data_entrega, valor_compra, prazo_pagamento, codigo_filial, cnpj_fornecedor)

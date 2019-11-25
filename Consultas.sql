@@ -1,4 +1,5 @@
 -- Remove as estruturas criadas no arquivo
+DROP TRIGGER dezesseis;
 ALTER TABLE TELEFONE_FUNCIONARIO DROP CONSTRAINT quinze;
 DROP VIEW quatorze;
 DROP VIEW treze;
@@ -140,7 +141,13 @@ CHECK (REGEXP_LIKE ( telefone, '^\(\d{2}\) \d{5}-\d{4}$' ));
 16. Crie um trigger que exclua a categoria correspondente a um fornecedor quando este for
 excluído.
 */
-
+CREATE TRIGGER dezesseis
+AFTER DELETE ON FORNECEDOR
+for each row
+BEGIN
+    DELETE FROM CATEGORIA
+    WHERE CATEGORIA.identificador = :old.id_categoria;
+END;
 /*
 17. Crie um trigger que não permita a inserção de mais de um produto com o mesmo nome.
 */
