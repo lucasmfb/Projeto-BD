@@ -151,13 +151,33 @@ END;
 /*
 17. Crie um trigger que não permita a inserção de mais de um produto com o mesmo nome.
 */
-
-
+CREATE OR REPLACE TRIGGER dezessete
+BEFORE INSERT ON PRODUTO
+for each row
+ENABLE
+DECLARE
+total number;
+    BEGIN
+    SELECT COUNT(*) INTO (total) FROM PRODUTO WHERE nome = :NEW.nome;
+    IF (total > 0) THEN
+    raise_application_error(-20502,'Já existe um produto com o mesmo nome');
+    END IF;
+END dezessete;
 /*
 18. Crie um trigger que não permita que o funcionário mantenha mais que 3 dependentes.
 */
-
-
+CREATE OR REPLACE TRIGGER dezoito
+BEFORE INSERT ON DEPENDENTE
+for each row
+ENABLE
+DECLARE
+total number;
+    BEGIN
+    SELECT COUNT(*) INTO (total) FROM DEPENDENTE WHERE DEPENDENTE.matricula_funcionario = :NEW.matricula_funcionario;
+    IF (total > 2) THEN
+    raise_application_error(-20502,'Já possui 3 dependentes');
+    END IF;
+END dezoito;
 /*
 19. Crie uma função chamada calculaValorCompraByClienteNoPeriodo que deve receber o CPF de um
 cliente e um intervalo de datas (inicial e final) como parâmetros e deve retornar o valor
