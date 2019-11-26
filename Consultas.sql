@@ -1,12 +1,4 @@
 -- Remove as estruturas criadas no arquivo
-DROP TRIGGER dezoito;
-DROP TRIGGER dezessete;
-DROP TRIGGER dezesseis;
-ALTER TABLE TELEFONE_FUNCIONARIO DROP CONSTRAINT quinze;
-DROP VIEW quatorze;
-DROP VIEW treze;
-DROP VIEW doze;
-DROP VIEW funcionarios;
 /*
 1. Qual o número de compras feitas entre 01/01/2018 e 31/12/2019 ?
 */
@@ -143,7 +135,7 @@ CHECK (REGEXP_LIKE ( telefone, '^\(\d{2}\) \d{5}-\d{4}$' ));
 16. Crie um trigger que exclua a categoria correspondente a um fornecedor quando este for
 excluído.
 */
-CREATE TRIGGER dezesseis
+CREATE OR REPLACE TRIGGER dezesseis
 AFTER DELETE ON FORNECEDOR
 for each row
 BEGIN
@@ -186,61 +178,23 @@ cliente e um intervalo de datas (inicial e final) como parâmetros e deve retorn
 total gasto em compras por aquele cliente naquele determinado período. Coloque no script
 também o código de como executar a função.
 */
+CREATE OR REPLACE FUNCTION calculaValorCompraByClienteNoPeriodo(cpfcliente VARCHAR2,inicio IN DATE,fim IN DATE)
+RETURN NUMBER
+AS
+resultFunction NUMBER;
+CURSOR cursorCompra IS SELECT o.data_hora, i.preco_produto, i.desconto, i.quantidade FROM ORDEM_COMPRA o, ITEM i WHERE o.cpf_cliente = cpfcliente AND o.numero_nota_fiscal = i.num_nota_fiscal_ordem AND data_hora BETWEEN inicio AND fim;
+begin
+resultFunction := 0;
+FOR cp IN cursorCompra LOOP
+resultFunction := resultFunction + (cp.quantidade*(cp.preco_produto - cp.desconto));
+END LOOP;
+RETURN resultFunction;
+END;
+
+SELECT calculaValorCompraByClienteNoPeriodo('10000000001','01/01/2018','31/12/2019') total FROM DUAL;
 
 /*
 20. Crie uma stored procedure chamada getFornecedorByCategoria que deve receber como parâmetro
 identificador de uma categoria e retornar o fornecedor daquela categoria que mais teve
 solicitações realizadas. Coloque no script também o código de como executar a procedure.
 */
-
-
-
-
-
--- Q16
-/*CREATE OR REPLACE TRIGGER exclui_categoria
-AFTER DELETE ON FORNECEDOR
-FOR EACH ROW   
-WHEN(old.cpnj is null)
-    BEGIN
-        DELETE FROM CATEGORIA
-        WHERE CATEGORIA.indentificador = :old.id_categoria;
-    END;
-END exclui_categoria;
-*/
-
---Q17
-/*
-CREATE OR REPLACE TRIGGER adiciona_nome_repetido
-BEFORE INSERT
-ON PRODUTO
-FOR EACH ROW
-    BEGIN
-        IF (:new.nome LIKE old.nome)
-            THEN RAISE_APPLICATION_ERROR(-20000, "Não é permitido nomes iguais!");
-        END IF;
-    END adiciona_nome_repetido;
-*/
-
---Q18
-/*CREATE OR REPLACE TRIGGER controle_depedentes
-BEFORE INSERT
-ON FUNCIONARIO
-FOR EACH ROW
-    BEGIN
-*/
-
-
--- Q20 (não é a resposta, apenas uma ideia para fazer a questão depois)
-/*CREATE PROCEDURE getFornecedorByCategoria
-@categoria INT
-AS
-SELECT *
-FROM (SELECT FORNECEDOR
-        FROM SOLICITACAO AS S, NOTA_FISCAL AS NOTA_FISCAL
-        WHERE @categoria = F.id_categoria and F.cnpj = S.cnpj_fornecedor and S.identificador = N.identificador_soliticao
-        ORDER BY N.quantidade)
-WHERE ROWNUM = 1;
-*/
-
---EXECUTE getFornecedorByCategoria (id valido)

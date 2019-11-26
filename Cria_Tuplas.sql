@@ -1,7 +1,4 @@
 -- Remove as tuplas existentes para o banco ficar com as tuplas presentes nesse arquivo
-DROP TRIGGER dezoito;
-DROP TRIGGER dezessete;
-DROP TRIGGER dezesseis;
 DELETE FROM TELEFONE_FUNCIONARIO;
 DELETE FROM DEPENDENTE;
 DELETE FROM ITEM;
