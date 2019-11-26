@@ -1,4 +1,6 @@
 -- Remove as estruturas criadas no arquivo
+DROP TRIGGER dezoito;
+DROP TRIGGER dezessete;
 DROP TRIGGER dezesseis;
 ALTER TABLE TELEFONE_FUNCIONARIO DROP CONSTRAINT quinze;
 DROP VIEW quatorze;
@@ -184,7 +186,6 @@ cliente e um intervalo de datas (inicial e final) como parâmetros e deve retorn
 total gasto em compras por aquele cliente naquele determinado período. Coloque no script
 também o código de como executar a função.
 */
-
 
 /*
 20. Crie uma stored procedure chamada getFornecedorByCategoria que deve receber como parâmetro
